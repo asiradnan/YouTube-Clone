@@ -4,7 +4,7 @@ Welcome to the YouTube Clone project repository! This project was built from scr
 
 ## Project Showcase
 
-Check out the edited screen recording of the project: [YouTube Clone Demo Video][https://youtu.be/NxVQ8UK-GCE]
+Check out the edited screen recording of the project: [YouTube Clone Demo Video](https://youtu.be/NxVQ8UK-GCE)
 
 ## Project Overview
 
