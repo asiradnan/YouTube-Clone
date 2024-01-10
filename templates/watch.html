@@ -1,0 +1,133 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{vid.title}}</title>
+    <link rel="icon" href="{%static 'youtube.png'%}">
+    <link rel="stylesheet" href="{% static 'watch.css' %}">
+</head>
+<body>
+    <div class="notification" id="notification">
+        <div class="noti-upper">
+            <p>Notifications</p> <img src="{%static 'settings.png'%}" height="25px" width="25px" >
+            
+        </div>
+        <hr>
+        <div class="noti-lower">
+            <img src="{%static 'bell.png'%}" height="100px" width="100px">
+            <h3>Your notifications live here</h3>
+            <p>Subscribe to your favorite channels to get notified about their latest videos.</p>
+        </div>
+    </div>
+    <div class="useracc" id="useracc">
+        <div class="profile">
+            <img class="user" src="{{extra_data.picture }}" height="45px" width="45px">
+            <div class="text1">{{extra_data.name }} </div> 
+            <div class="text2">{{ extra_data.email }}</div> 
+            <a href="#">Manage your Google Account</a>
+        </div>
+        <hr>
+        <div class="lower">
+            <a  class="others" href="#"><img src="{%static 'channel.png'%}" >Create a channel</a>
+            <a  class="others" href="#"><img src="{%static 'hexagon.png'%}" >Youtube studio</a>
+            <a  class="otherS" href="#"><img src="{%static 'accounts.png'%}" >Swicth account <img id='rarrow' src="{% static 'rarrow.png'%}" ></a>
+            <a  class="others" href="{% url 'account_logout'%}"><img src="{%static 'signin.png'%}" >Sign out</a>
+            <hr>
+            <a  class="others" href="#"><img src="{%static 'coin.png'%}" >Purchases and memberships</a>
+            <a  class="others" href="#"><img src="{%static 'data.png'%}" >Your data on youtube</a>
+            <hr>
+            <a  class="otherS" href="#"><img src="{%static 'moon.png'%}" >Appearance: Device theme<img id='rarrow' src="{% static 'rarrow.png'%}" ></a>
+            <a  class="otherS" href="#"><img src="{%static 'lang.png'%}" >Language: English<img id='rarrow' src="{% static 'rarrow.png'%}" ></a>
+            <a  class="otherS" href="#"><img src="{%static 'shield.png'%}">Restricted Mode: Off<img id='rarrow' src="{% static 'rarrow.png'%}" ></a>
+            <a  class="otherS" href="#"><img src="{%static 'world.png'%}" >Location: Bangladesh<img id='rarrow' src="{% static 'rarrow.png'%}" ></a>
+            <a  class="otherS" href="#"><img src="{%static 'coin.png'%}" >Keyboard Shortcuts</a>
+            <hr>
+            <a  class="others" href="#"><img src="{%static 'settings.png'%}" >Settings</a>
+            <hr>
+            <a  class="others" href="#"><img src="{%static 'help.png'%}" >Help</a>
+            <a  class="others" href="#"><img src="{%static 'comment.png'%}" >Send feedback</a>
+        </div>
+        
+    </div>
+    <div class="topbar">
+        <button class="icons" onclick="sidetog()" id="togg"><img src="{%static 'hamburger.png'%}" height="21.5px" width="20px"></button>
+        <a title="YouTube Home" href="https://www.youtube.com" target="_blank"><img src="{%static 'yt2.jpg'%}" height="24px" width="100px"></a>
+        <div class='search'>
+            <input type="text" class="searchbar" id="searchbar" placeholder="Search">
+            <button class="goSearch" for="searchbar"><img src="{%static 'search.png'%}" height="20px" width="20px"></img></button>
+            <button class="voicesearch"><img src="{%static 'mic.png'%}" height="17px" width="17px"></button>
+        </div> 
+        {%if user.is_authenticated%} 
+            <img class="user" src="{{extra_data.picture }}" height="39px" width="39px" onclick="acc()">
+            <button id='upvid' class="icons" onclick="uploadVid()"><img src="{%static 'video.png'%}" height="24px" width="24px"></button>
+            <button id='noti' class="icons" class='another' onclick="shownoti()"><img src="{%static 'bell.png'%}" height="21px" width="21px"></button>
+        {%else%} 
+            <button class="doticon"><img src="{%static '3dots.png'%}" height="20px" width="20px"></button>
+            <a 
+            href="{% url 'account_login' %}" 
+            class="usericonA"><button class="usericon"><img src="{%static 'user.png'%}" height="25px" width="25px"><p>Sign in</p></button>
+            </a>
+        {%endif%}
+        
+    </div>
+    <div class="container">
+        <div class="fullsidebar" id="fullsidebar">
+            <ul>
+                <li title="Home"><a href="{%url 'home' %}"><button class="fullsb"><img src="{%static 'home.png'%}" ><p>Home</p></button></a></li> 
+                <li title="Shorts"><button class="fullsb"><img src="{%static 'shorts2.png'%}"><p>Shorts</p></button></li> 
+                <li title="Subscriptions"><button class="fullsb"><img src="{%static 'subscription.png'%}" ><p>Subscriptions</p></button></li> 
+                <hr>
+                <li title="Library"><button class="fullsb"><img src="{%static 'library.png'%}"><p>Library</p></button></li> 
+                <li><button class="fullsb"><img src="{%static 'history.png'%}"><p>History</p> </button></li> 
+                {%if not user.is_authenticated%}
+                <li><button class="fullsb"><img src="{%static 'like.png'%}"><p>Liked Videos</p> </button></li> 
+                {%endif%}
+                
+                <hr>
+                <li><button class="fullsb"><img src="{%static 'settings.png'%}"><p>Settings</p> </button></li> 
+                <li><button class="fullsb"><img src="{%static 'flag.png'%}"><p>Report history</p> </button></li> 
+                <li><button class="fullsb"><img src="{%static 'help.png'%}"><p>Help</p> </button></li> 
+                <li><button class="fullsb"><img src="{%static 'comment.png'%}"><p>Send feedback</p> </button></li> 
+                <hr>
+             </ul>
+        </div>
+        <div class="main">
+            <div class="video">
+                <iframe src="https://www.youtube.com/embed/{{id}}?controls=1&autoplay=1&showinfo=0&rel=0" frameborder="0" allowfullscreen></iframe>
+                
+            </div>
+            <div class="infos">
+                <p>{{ vid.title }}</p>
+                <div class="channel">
+                    <img src="{{ vid.channel_info.thumbnail_url }}" alt="{{ vid.channel_info.title }}" > 
+                    <div>
+                        <p>{{vid.channel_info.title}}</p>
+                        <p class="data">{{vid.subs }}</p>
+                    </div>
+                    
+                </div>
+                <div class="comm">
+                    <br><br>
+                    {{comments|length}} Comments:
+                    <ul>
+                        {% for comment in comments %}   
+                            <li>{{comment}}</li>
+                        {%endfor%}
+                    </ul>
+                    
+                </div>
+            </div>
+            
+            <div class="right">
+    
+            </div>
+
+        </div>
+    </div>
+    <script src="{% static 'watch.js' %}"></script>
+    
+</body>
+</html>
+
+
