@@ -1,6 +1,6 @@
 # YouTube Clone Project
 
-Welcome to the YouTube Clone project repository! This project was built from scratc to practice web development skills by recreating the front page of YouTube and extending it to include a dedicated video viewing experience with comments.
+Welcome to the YouTube Clone project repository! This project was built from scratch to practice web development skills by recreating the front page of YouTube and extending it to include a dedicated video viewing experience with comments.
 
 ## Project Showcase
 
