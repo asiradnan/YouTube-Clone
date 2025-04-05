@@ -1,24 +1,37 @@
-# YouTube Clone Project
+# YouTube Clone 🎬
 
-Welcome to the YouTube Clone project repository! This project was built from scratch to practice web development skills by recreating the front page of YouTube and extending it to include a dedicated video viewing experience with comments.
+A front-end YouTube clone built from scratch to sharpen web development skills. This project recreates the familiar YouTube interface and extends it with a video viewing experience, complete with comments and real YouTube data via API integration.
 
-## Project Showcase
+🔗 **Live Demo:** [yt.asiradnan.com](https://yt.asiradnan.com)  
+🎥 **Demo Video:** [YouTube Clone Demo](https://youtu.be/NxVQ8UK-GCE)
 
-Check out the edited screen recording of the project: [YouTube Clone Demo](https://youtu.be/NxVQ8UK-GCE)
+---
 
-## Project Overview
+## 🚀 Tech Stack
 
-- **Built with:** Django, JavaScript, HTML, CSS
-- **Duration:** 2 days
+- **Backend:** Django  
+- **Frontend:** JavaScript, HTML, CSS  
+- **APIs:** YouTube Data API  
+- **Auth:** Google Sign-In  
 
-## Features
+---
 
-- Identical front page design resembling YouTube
-- Responsive CSS for optimal viewing on various devices
-- Seamless Google Sign-In integration
-- Video viewing page with comments
-- Fetching content from YouTube API
+## 🛠 Features
 
+- Fully responsive layout that mimics YouTube’s front page
+- Integrated video viewer with real-time comments
+- Google Sign-In support
+- Dynamic content fetched from YouTube API
+- Optimized for both desktop and mobile devices
 
+---
 
+## 🕒 Timeline
 
+- **Build Time:** 2 days
+
+---
+
+## 📬 Feedback
+
+Feel free to open issues or pull requests if you'd like to contribute or suggest improvements.
